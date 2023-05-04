@@ -1,4 +1,4 @@
-describe(`I'm able map any array when: `, () => {
+describe(`I'm able to map any array when: `, () => {
   const items = [1, 2, 3];
 
   it('callback function transforms every item', () => {
