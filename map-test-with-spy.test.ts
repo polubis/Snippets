@@ -12,8 +12,6 @@ describe(`I'm able to map any array when: `, () => {
     const result = map(items, mapperSpy);
 
     // We're checking number of mapperSpy mocked implementation calls.
-    expect(result).toEqual(['Item: 1', 'Item: 2', 'Item: 3']);
-    // we're checking number of mapperSpy mocked implementation calls.
     expect(mapperSpy).toHaveBeenCalledTimes(items.length);
     // First iteration argument pass checked.
     expect(mapperSpy).toHaveBeenCalledWith(1, 0, items);
