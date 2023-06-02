@@ -10,6 +10,7 @@ const EmailStep = ({ onChange }: EmailStepProps) => (
   </div>
 );
 
+// Every step must have different key.
 const steps = [
   { key: 'email', Component: EmailStep },
   {
@@ -29,6 +30,7 @@ const steps = [
   { key: 'exception', Component: () => null },
 ] as const;
 
+// This will give us type-safety.
 type Steps = typeof steps;
 type Union = Steps[number];
 
@@ -38,6 +40,7 @@ const RegisterForm = () => {
     steps
   );
 
+  // Checking the equality of keys and renders the component.
   if (is(Step, 'email')) return <Step.Component onChange={previous} />;
 
   if (is(Step, 'error'))
@@ -47,6 +50,8 @@ const RegisterForm = () => {
 
   if (is(Step, 'exception')) return <Step.Component />;
 
+  // If this code will executed it means - we did something wrong - it
+  // shouldn't be possible!
   throw Error(
     'You did something wrong - there may be additional unsupported step!'
   );
